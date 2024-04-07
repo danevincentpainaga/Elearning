@@ -1,0 +1,44 @@
+<div class="card md:mx-8">
+    <p-tabView>
+        <!-- <div class="flex justify-content-end">
+            <p-button label="Add" size="small" (click)="addTeacher()"></p-button>
+        </div> -->
+        <p-tabPanel header="Teachers list">
+            <div class="card mt-3">
+                <p-table [value]="teachers" styleClass="p-datatable-sm">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Teacher</th>
+                            <th>Position</th>
+                            <th>Created By</th>
+                            <th>Action</th>
+                        </tr>   
+                    </ng-template>
+                    <ng-template pTemplate="body" let-tchr>
+                        <tr>
+                            <td>{{ tchr.fullname }}</td>
+                            <td>{{ tchr.position }}</td>
+                            <td>{{ tchr.createdBy }}</td>
+                            <td class="action-icons">
+                                <span>
+                                    <i class="pi pi-file-edit" pTooltip="Details" [showDelay]="300" (click)="viewDetails()"></i>
+                                </span>
+                                <span>
+                                    <i class="pi pi-trash" pTooltip="Delete" [showDelay]="300"></i>
+                                </span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Add Teacher"    >
+            <app-add-teachers></app-add-teachers>
+        </p-tabPanel>
+        <p-tabPanel header="Assign subject">
+            <app-add-subjects></app-add-subjects>
+        </p-tabPanel>
+    </p-tabView> 
+  </div>
+
+  

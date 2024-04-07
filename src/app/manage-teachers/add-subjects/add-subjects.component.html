@@ -1,0 +1,99 @@
+<!-- <p-tabPanel header="Assign"> -->
+    <div class="card">
+        <div class="formgrid grid">
+            <div class="field col-8">
+                <!-- <label for="state" class="mr-2 mt-3 mb-4">Teacher:</label> -->
+                <p-dropdown 
+                    [options]="teachers"
+                    [(ngModel)]="selectedTeacher"
+                    optionLabel="name"
+                    [filter]="true"
+                    filterBy="name"
+                    [showClear]="true"
+                    placeholder="Search teacher"
+                    styleClass="w-full md:w-5 p-inputtext-sm"
+                    (onChange)="onChangeTeacher($event)">
+                    <!-- <ng-template pTemplate="selectedItem" let-selectedOption>
+                        <div class="flex align-items-center gap-2">
+                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" style="width: 18px"/>
+                            <div>{{ selectedOption.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-country pTemplate="item">
+                        <div class="flex align-items-center gap-2">
+                            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" style="width: 18px"/>
+                            <div>{{ country.name }}</div>
+                        </div>
+                    </ng-template> -->
+                </p-dropdown>
+            </div>
+            <div class="col-4 text-right" *ngIf="newSubjects.length > 0">
+                <p-button label="Save" size="small" (click)="saveSubjects()" [disabled]="newSubjects.invalid"></p-button>
+            </div>
+        </div>
+        <ng-container class="overflow-auto" *ngIf="showTable">
+            <form [formGroup]="tSubjecForm" >
+                <p-table [value]="newSubjects.controls" styleClass="p-datatable-sm" dataKey="id">
+                    <ng-template pTemplate="caption"></ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Description</th>
+                            <th>Period</th>
+                            <th>Academic Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-controls let-i="rowIndex" formArrayName="newSubjects">
+                        <tr [formGroupName]="i">
+                            <td>
+                                <!-- <input formControlName="subject" pInputText class="w-full p-inputtext-sm"> -->
+                                <p-dropdown 
+                                    [options]="subjects"
+                                    formControlName="subject"
+                                    optionLabel="subject"
+                                    [filter]="true"
+                                    filterBy="subject"
+                                    [showClear]="true"
+                                    placeholder="Search"
+                                    styleClass="w-full p-inputtext-sm"
+                                    appendTo="body"
+                                    (onChange)="onChangeSubject($event)">
+                                </p-dropdown>
+                            </td>
+                            <td>
+                                <input formControlName="description" pInputText class="w-full p-inputtext-sm">
+                            </td>
+                            <td>
+                                <p-dropdown styleClass="w-full" appendTo="body" [options]="period" formControlName="period" optionLabel="period" [showClear]="true" placeholder="period"></p-dropdown>
+                            </td>
+                            <td>
+                                <!-- <p-dropdown styleClass="w-full" appendTo="body" [options]="academicYear" formControlName="academic_year" optionLabel="academic_year" [showClear]="true" placeholder="year"></p-dropdown> -->
+                                <p-dropdown 
+                                    [options]="academicYear"
+                                    formControlName="academic_year"
+                                    optionLabel="academic_year"
+                                    [filter]="true"
+                                    filterBy="academic_year"
+                                    [showClear]="true"
+                                    placeholder="Search"
+                                    styleClass="w-full p-inputtext-sm"
+                                    appendTo="body"
+                                    (onChange)="onChangeAcademicYear($event)">
+                                </p-dropdown>
+                            </td>
+                            <td>
+                                <p-button (click)="removeRow(i)" icon="pi pi-times" [rounded]="true" [text]="true" severity="danger "></p-button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="summary"></ng-template>
+                </p-table>
+                <div class="mt-3">
+                    <p-button label="Add" size="small" (click)="addNewSubject()"></p-button>
+                </div>
+                <!-- {{ newSubjects.value | json }} -->
+            </form>
+        </ng-container>
+    </div>
+<!-- </p-tabPanel> -->

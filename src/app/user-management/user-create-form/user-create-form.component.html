@@ -1,0 +1,25 @@
+<form [formGroup]="userForm">
+    <div class="p-grid p-fluid">
+      <div class="p-col-12">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" class="p-inputtext" />
+        <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)">
+          <small class="p-error" *ngIf="userForm.get('name')?.errors?.['required']">Name is required.</small>
+        </div>
+      </div>
+      <div class="p-col-12">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" class="p-inputtext" />
+        <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+          <small class="p-error" *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</small>
+          <small class="p-error" *ngIf="userForm.get('email')?.errors?.['email']">Invalid email format.</small>
+        </div>
+      </div>
+    </div>
+  
+    <div class="p-grid p-justify-between">
+      <button type="button" pButton icon="pi pi-save" (click)="save()" label="Save"></button>
+      <button type="button" pButton icon="pi pi-times" (click)="cancel()" label="Cancel"></button>
+    </div>
+  </form>
+  

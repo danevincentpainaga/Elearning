@@ -1,0 +1,77 @@
+<!-- <div class="card md:mx-8">
+    <p-tabView>
+        <p-tabPanel header="Teachers list">
+            <div class="card mt-3">
+                <p-table [value]="products" styleClass="p-datatable-sm">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Teacher</th>
+                            <th>Position</th>
+                            <th>Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td>{{ product.grade }}</td>
+                            <td>{{ product.createdBy }}</td>
+                            <td class="action-icons">
+                                <span routerLink="/sections"><i class="pi pi-file-edit" pTooltip="Details" [showDelay]="300" ></i></span>
+                                <span><i class="pi pi-trash" pTooltip="Delete" [showDelay]="300"></i></span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Add New">
+            <div class="card">
+                <div class="formgrid grid mt-3">
+                    <div class="field col-12 md:col-6">
+                        <label for="firstname6">Firstname</label>
+                        <input id="firstname6" pInputText class="w-full p-inputtext-sm">
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="lastname">Lastname</label>
+                        <input id="lastname" pInputText class="w-full p-inputtext-sm">
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="middlename">Middlename</label>
+                        <input id="middlename" pInputText class="w-full p-inputtext-sm">
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="middlename">Position</label>
+                        <input id="middlename" pInputText class="w-full p-inputtext-sm">
+                    </div>
+                </div>
+                <p-button label="Save" size="small"></p-button>
+            </div>
+        </p-tabPanel>
+    </p-tabView> 
+  </div> -->
+  <div class="card mt-3">
+    <p-table [value]="products" styleClass="p-datatable-sm">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Teacher</th>
+                <th>Position</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{ product.grade }}</td>
+                <td>{{ product.createdBy }}</td>
+                <td class="action-icons">
+                    <span routerLink="/sections"><i class="pi pi-file-edit" pTooltip="Details" [showDelay]="300" ></i></span>
+                    <span><i class="pi pi-trash" pTooltip="Delete" [showDelay]="300"></i></span>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+/* .p-inputtext.p-inputtext-sm {
+    font-size: 0.775rem !important;
+    height: 30px !important;
+} */
+
+table {
+    font-size: 0.8rem !important;
+}
+
+.p-tabview .p-tabview-panels {
+    padding: 1.25rem 0 !important;
+}
+
+.p-tabview-title {
+    font-size: 14px !important;
+}
+
+label {
+    font-size: 0.8rem !important;
+}
+
+input {
+    font-size: 0.775rem !important;
+    height: 30px !important;
+    border-radius: 3px !important;
+}
+
+/* button {
+    border-radius: 3px !important;
+} */
+
+textarea {
+    font-size: 0.775rem !important;
+}
+
+.p-dropdown {
+    border-radius: 3px !important;
+}
+
+.p-dropdown-item{
+    font-size: 0.775rem !important;
+}
+
+label {
+    font-size: 14px !important;
+}
+
+.p-button-sm {
+    padding: 0.5rem 1rem !important;
+}
+
+.p-dropdown .p-dropdown-label {
+    font-size: 0.775rem !important;
+    padding: 0.4rem 0.5rem !important;
+}

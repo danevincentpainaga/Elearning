@@ -1,0 +1,132 @@
+<div class="card md:mx-8">
+    <p-tabView>
+        <p-tabPanel header="Students">
+            <div class="card mt-3">
+                <p-table [value]="products" styleClass="p-datatable-sm p-datatable-gridlines">
+                    <ng-template pTemplate="caption">
+                        <span>Students</span>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Name</th>
+                            <th>Year level</th>
+                            <th>Section</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td>{{ product.grade }}</td>
+                            <td>{{ product.createdBy }}</td>
+                            <td>{{ product.createdBy }}</td>
+                            <td class="action-icons text-center">
+                                <span routerLink="/sections" class="mr-2">
+                                    <i class="pi pi-file-edit" pTooltip="Details" [showDelay]="300" ></i>
+                                </span>
+                                <span><i class="pi pi-trash" pTooltip="Delete" [showDelay]="300"></i></span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Modules">
+            <div class="card mt-3">
+                <p-table [value]="products" styleClass="p-datatable-sm p-datatable-gridlines">
+                    <ng-template pTemplate="caption">
+                        <div class="flex align-items-center justify-content-between">
+                            Modules
+                            <p-button icon="pi pi-refresh" ></p-button>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Module</th>
+                            <th>Description</th>
+                            <th>Period</th>
+                            <th>Academic Year</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td>{{ product.grade }}</td>
+                            <td>{{ product.createdBy }}</td>
+                            <td>{{ product.createdBy }}</td>
+                            <td>{{ product.createdBy }}</td>
+                            <td class="action-icons text-center">
+                                <span routerLink="/sections"  class="mr-2" (click)="viewDetails()">
+                                    <i class="pi pi-file-edit" pTooltip="View" [showDelay]="300" ></i>
+                                </span>
+                                <!-- <span routerLink="/sections" (click)="addModule()">
+                                    <i class="pi pi-file-edit" pTooltip="Edit" [showDelay]="300" ></i>
+                                </span> -->
+                                <span><i class="pi pi-trash" pTooltip="Delete" [showDelay]="300"></i></span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+  </div>
+<!-- <p-dialog header="Add module" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <div class="card">
+        <div class="formgrid grid">
+            <div class="field col-12">
+                <label for="firstname6">Module</label>
+                <input id="firstname6" pInputText class="w-full p-inputtext-sm">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col-12">
+                <label for="lastname">Description</label>
+                <textarea rows="5" cols="30" pInputTextarea class="w-full p-inputtext-sm" ></textarea>
+            </div>
+        </div>
+        <p-button label="Save" size="small"></p-button> 
+    </div>
+</p-dialog> -->
+<p-dialog header="Topics" [(visible)]="visible" [modal]="true" [maximizable]="true" appendTo="body" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <div class="card">
+        <div class="formgrid grid">
+            <div class="field col-12">
+                <label for="firstname6">Topic</label>
+                <input id="firstname6" pInputText class="w-full p-inputtext-sm">
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col-12">
+                <label for="lastname">Description</label>
+                <textarea rows="3" cols="30" pInputTextarea class="w-full p-inputtext-sm" ></textarea>
+            </div>
+        </div>
+        <p-button label="Save" size="small"></p-button> 
+    </div>
+    <div class="card mt-4">
+        <p-table [value]="products" styleClass="p-datatable-sm p-datatable-gridlines">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Topic</th>
+                    <th>Description</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{ product.grade }}</td>
+                    <td>{{ product.createdBy }}</td>
+                    <td class="action-icons text-center">
+                        <span routerLink="/sections" class="mr-2" (click)="addModule()">
+                            <i class="pi pi-file-edit" pTooltip="Edit" [showDelay]="300" ></i>
+                        </span>
+                        <span><i class="pi pi-trash" pTooltip="Delete" [showDelay]="300"></i></span>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton pRipple icon="pi pi-times" label="close" class="p-button-text" size="small"></button>
+    </ng-template>
+</p-dialog>

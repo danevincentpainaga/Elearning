@@ -1,0 +1,89 @@
+<form [formGroup]="tSubjecForm" >
+    <p-table [value]="teacherSubjects" dataKey="id" editMode="row" styleClass="p-datatable-sm">
+        <ng-template pTemplate="header">
+            <tr>
+                <!-- <th>Teacher</th> -->
+                <th>Subject</th>
+                <th>Description</th>
+                <th>Period  </th>
+                <th>Academic Year</th>
+                <th>Action</th>
+            </tr>   
+        </ng-template>
+        <ng-template pTemplate="body" let-tsub let-i="rowIndex" formArrayName="tSubjects">
+            <tr [formGroupName]="i">
+                <td pEditableColumn>
+                    <!-- <p-cellEditor> -->
+                        <ng-template #editMode>
+                            <p-dropdown 
+                            [options]="subjects"
+                            formControlName="subject"
+                            optionLabel="subject"
+                            [filter]="true"
+                            filterBy="subject"
+                            [showClear]="true"
+                            placeholder="Search"
+                            dataKey="subjectID"
+                            styleClass="w-full p-inputtext-sm"
+                            appendTo="body"
+                            (onChange)="onChangeSubject($event)">
+                        </p-dropdown>
+                        </ng-template>
+                        <ng-container *ngIf="editingRowIndex !== i; else editMode">
+                            {{ tsub.subject.subject }}
+                        </ng-container>
+                    <!-- </p-cellEditor> -->
+                </td>
+                <td>
+                    {{ tsub.subject.description }}
+                </td>
+                <td>
+                    <ng-template #editPeriod>
+                        <p-dropdown
+                            styleClass="w-full"
+                            appendTo="body"
+                            [options]="period"
+                            formControlName="period"
+                            optionLabel="period"
+                            optionValue="period"
+                            [showClear]="true"
+                            placeholder="period">
+                        </p-dropdown>
+                    </ng-template>
+                    <ng-container *ngIf="editingRowIndex !== i; else editPeriod">
+                        {{ tsub.period }}
+                    </ng-container>
+                </td>
+                <td>
+                    <ng-template #editAcademicYear>
+                        <p-dropdown 
+                        [options]="academicYear"
+                        formControlName="academicYear"
+                        optionLabel="academicYear"
+                        optionValue="academicYear"
+                        [filter]="true"
+                        filterBy="academicYear"
+                        [showClear]="true"
+                        placeholder="Search"
+                        styleClass="w-full p-inputtext-sm"
+                        appendTo="body"
+                        (onChange)="onChangeAcademicYear($event)">
+                    </p-dropdown>
+                    </ng-template>
+                    <ng-container *ngIf="editingRowIndex !== i; else editAcademicYear">
+                        {{ tsub.academicYear }}
+                    </ng-container>
+                </td>
+                <td>
+                    <ng-template #editing>
+                        <p-button (click)="onRowEditSave(tsub)" icon="pi pi-check" [rounded]="true" [text]="true" severity="success"></p-button>
+                        <p-button (click)="onRowEditCancel()" icon="pi pi-times" [rounded]="true" [text]="true" severity="danger "></p-button>
+                    </ng-template>
+                    <ng-container *ngIf="editingRowIndex !== i; else editing">
+                        <p-button (click)="onRowEditInit(i)" icon="pi pi-file-edit" [rounded]="true" [text]="true" severity="info "></p-button>
+                    </ng-container>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</form>
