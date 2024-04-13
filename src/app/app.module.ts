@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,19 +19,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TooltipModule } from 'primeng/tooltip';
 import { TeachersComponent } from './manage-teachers/teachers/teachers.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { SubjectsComponent } from './subjects/subjects.component';
+import { SubjectsComponent } from './manage-subjects/subjects/subjects.component';
 import { MySubjectsComponent } from './my-subjects/my-subjects.component';
 import { SubjectDetailsComponent } from './subject-details/subject-details.component';
 import { DialogModule } from 'primeng/dialog';
-import { UserAccountsComponent } from './user-management/user-accounts/user-accounts.component';
-import { UserManagementComponent } from './user-management/user-management.component';
-import { UserCreateFormComponent } from './user-management/user-create-form/user-create-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { AddSubjectsComponent } from './manage-teachers/add-subjects/add-subjects.component';
 import { ManageTeachersComponent } from './manage-teachers/manage-teachers.component';
 import { AddTeachersComponent } from './manage-teachers/add-teachers/add-teachers.component';
+import { EditTeachersComponent } from './manage-teachers/edit-teachers/edit-teachers.component';
+import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.component';
+import { AddSubjectsFormComponent } from './manage-subjects/add-subjects-form/add-subjects-form.component';
+import { EditSubjectsFormComponent } from './manage-subjects/edit-subjects-form/edit-subjects-form.component';
+import { ManageAdminAccountsComponent } from './manage-admin-accounts/manage-admin-accounts.component';
+import { AddAccountsComponent } from './manage-admin-accounts/add-accounts/add-accounts.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { EditAccountsComponent } from './manage-admin-accounts/edit-accounts/edit-accounts.component';
+import { TreeModule } from 'primeng/tree';
+
 
 @NgModule({
   declarations: [
@@ -42,12 +49,16 @@ import { AddTeachersComponent } from './manage-teachers/add-teachers/add-teacher
     SubjectsComponent,
     MySubjectsComponent,
     SubjectDetailsComponent,
-    UserAccountsComponent,
-    UserManagementComponent,
-    UserCreateFormComponent,
     AddSubjectsComponent,
     ManageTeachersComponent,
-    AddTeachersComponent
+    AddTeachersComponent,
+    EditTeachersComponent,
+    ManageSubjectsComponent,
+    AddSubjectsFormComponent,
+    EditSubjectsFormComponent,
+    ManageAdminAccountsComponent,
+    AddAccountsComponent,
+    EditAccountsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -65,9 +76,12 @@ import { AddTeachersComponent } from './manage-teachers/add-teachers/add-teacher
     TableModule,
     TooltipModule,
     InputTextareaModule,
-    DialogModule
+    DialogModule,
+    MultiSelectModule,
+    TreeModule
   ],
   providers: [ConfirmationService, MessageService, DialogService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

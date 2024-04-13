@@ -1,14 +1,12 @@
 <div class="card md:mx-8">
     <p-tabView>
-        <p-tabPanel header="Assigned subjects">
+        <p-tabPanel header="Subjects">
             <div class="card mt-3">
                 <p-table [value]="products" styleClass="p-datatable-sm p-datatable-gridlines">
                     <ng-template pTemplate="header">
                         <tr>
                             <th>Subject</th>
                             <th>Description</th>
-                            <th>Period</th>
-                            <th>Academic Year</th>
                             <th>Action</th>
                         </tr>
                     </ng-template>
@@ -16,17 +14,21 @@
                         <tr>
                             <td>{{ product.grade }}</td>
                             <td>{{ product.createdBy }}</td>
-                            <td>{{ product.grade }}</td>
-                            <td>{{ product.createdBy }}</td>
-                            <td class="action-icons">
+                            <td>
                                 <span>
-                                    <i class="pi pi-file-edit info ml-3" pTooltip="View" [showDelay]="300"></i>
+                                    <i class="pi pi-user-edit info ml" pTooltip="edit" [showDelay]="300" (click)="editSubject()"></i>
+                                </span>
+                                <span>
+                                    <i class="pi pi-trash remove ml-2" pTooltip="Delete" [showDelay]="300"></i>
                                 </span>
                             </td>
                         </tr>
                     </ng-template>
                 </p-table>
             </div>
+        </p-tabPanel>
+        <p-tabPanel header="Add subject">
+            <app-add-subjects-form></app-add-subjects-form>
         </p-tabPanel>
     </p-tabView> 
   </div>

@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="firstname6">Firstname</label>
+            <input id="firstname6" pInputText class="w-full p-inputtext-sm">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="lastname">Lastname</label>
+            <input id="lastname" pInputText class="w-full p-inputtext-sm">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="middlename">Middlename</label>
+            <input id="middlename" pInputText class="w-full p-inputtext-sm">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="middlename">Position</label>
+            <input id="middlename" pInputText class="w-full p-inputtext-sm">
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <div class="d-grid">
+                <label for="middlename">Gender&nbsp;</label>
+                <p-dropdown [options]="genderList"
+                    [(ngModel)]="selectedGender"
+                    optionLabel="gender"
+                    optionValue="gender"
+                    styleClass="mt-2 col-6"
+                    appendTo="body">
+                </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <p-button label="Save" size="small"></p-button>
+</div>

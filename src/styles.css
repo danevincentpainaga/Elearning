@@ -5,6 +5,27 @@
     height: 30px !important;
 } */
 
+.d-grid {
+    display: grid !important;
+}
+
+.save {
+    color: #22c55e;
+}
+
+.remove {
+    color: #ef4444;
+}
+
+.info {
+    color: #0ea5e9;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+}
+
 table {
     font-size: 0.8rem !important;
 }
@@ -54,4 +75,13 @@ label {
 .p-dropdown .p-dropdown-label {
     font-size: 0.775rem !important;
     padding: 0.4rem 0.5rem !important;
+}
+
+.p-multiselect .p-multiselect-label {
+    font-size: 0.775rem !important;
+    padding: 0.5rem 0.5rem !important;
+}
+
+.p-multiselect-items {
+    font-size: 0.775rem !important; 
 }

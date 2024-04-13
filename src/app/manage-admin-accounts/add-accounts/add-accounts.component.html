@@ -1,4 +1,6 @@
 <div class="card">
+    <form class="flex align-items-center gap-1" [formGroup]="accountCreateForm">
+    </form>
     <div class="formgrid grid mt-3">
         <div class="field col-12 md:col-5">
             <label for="firstname6">Firstname</label>
@@ -36,15 +38,38 @@
         </div>
     </div>
     <div class="formgrid grid">
+        <div class="field col-12 md:col-5">
+            <label for="c_password">Confirm Password</label>
+            <input type="password" id="c_password" pInputText class="w-full p-inputtext-sm">
+        </div>
+    </div>
+    <div class="formgrid grid">
         <div class="field col">
             <div class="d-grid">
                 <label for="middlename">Gender&nbsp;</label>
                 <p-dropdown [options]="genderList"
-                    [(ngModel)]="selectedGender"
+                    formControlName="selectedGender"
                     optionLabel="gender"
                     optionValue="gender"
-                    styleClass="mt-2 col-2">
+                    styleClass="mt-2">
                 </p-dropdown>
+            </div>
+        </div>
+    </div>
+    <div class="formgrid grid">
+        <div class="field col">
+            <div class="d-grid">
+                <label for="role">Gender&nbsp;</label>
+                <p-multiSelect
+                    [options]="roleList"
+                    formControlName="roles"
+                    placeholder="Select role"
+                    optionLabel="label"
+                    optionValue="role"
+                    display="chip"
+                    [showClear]="true"
+                    styleClass="mt-2">
+                </p-multiSelect>
             </div>
         </div>
     </div>

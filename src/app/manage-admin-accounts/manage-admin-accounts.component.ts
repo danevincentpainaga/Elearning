@@ -3,15 +3,14 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { DropdownChangeEvent } from 'primeng/dropdown/dropdown.interface';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AdminService } from '../services/admin.service';
-import { TeacherSubjectsComponent } from './teacher-subjects/teacher-subjects.component';
-import { EditTeachersComponent } from './edit-teachers/edit-teachers.component';
+import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 
 @Component({
-  selector: 'app-manage-teachers',
-  templateUrl: './manage-teachers.component.html',
-  styleUrl: './manage-teachers.component.css'
+  selector: 'app-manage-admin-accounts',
+  templateUrl: './manage-admin-accounts.component.html',
+  styleUrl: './manage-admin-accounts.component.css'
 })
-export class ManageTeachersComponent {
+export class ManageAdminAccountsComponent {
 
   showTable!: boolean;
   period = [{ period_id: 1, period: '1st Grading' }];
@@ -44,31 +43,17 @@ export class ManageTeachersComponent {
     return this.tSubjecForm.get('newSubjects') as FormArray;
   }
 
-  editTeacher() {
-    this.dialogService.open(EditTeachersComponent, {
-      header: 'Details',
-      width: '30vw',
+  editAccount() {
+    this.dialogService.open(EditAccountsComponent, {
+      header: 'Edit',
+      width: '50vw',
       modal:true,
       draggable: true,
+      maximizable: true,
       data: {
         teachersData: {}
       }
-  });   
-  }
-
-  viewDetails() {
-    this.dialogService.open(TeacherSubjectsComponent, {
-        header: 'Details',
-        width: '90vw',
-        modal:true,
-        maximizable: true,
-        draggable: true,
-        breakpoints: {
-            '960px': '75vw',
-            '640px': '90vw'
-        },
-    });
+    });   
   }
 
 }
-

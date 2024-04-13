@@ -1,7 +1,7 @@
 <!-- <p-tabPanel header="Assign"> -->
     <div class="card">
         <div class="formgrid grid">
-            <div class="field col-8">
+            <div class="field col-8 mt-3">
                 <!-- <label for="state" class="mr-2 mt-3 mb-4">Teacher:</label> -->
                 <p-dropdown 
                     [options]="teachers"
@@ -33,7 +33,7 @@
         </div>
         <ng-container class="overflow-auto" *ngIf="showTable">
             <form [formGroup]="tSubjecForm" >
-                <p-table [value]="newSubjects.controls" styleClass="p-datatable-sm" dataKey="id">
+                <p-table [value]="newSubjects.controls" styleClass="p-datatable-sm p-datatable-gridlines" dataKey="id">
                     <ng-template pTemplate="caption"></ng-template>
                     <ng-template pTemplate="header">
                         <tr>
@@ -41,7 +41,7 @@
                             <th>Description</th>
                             <th>Period</th>
                             <th>Academic Year</th>
-                            <th>Action</th>
+                            <th class="action">Action</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-controls let-i="rowIndex" formArrayName="newSubjects">
@@ -83,7 +83,11 @@
                                 </p-dropdown>
                             </td>
                             <td>
-                                <p-button (click)="removeRow(i)" icon="pi pi-times" [rounded]="true" [text]="true" severity="danger "></p-button>
+                                <div class="action">
+                                    <span (click)="removeRow(i)">
+                                        <i class="pi pi-trash remove" pTooltip="Delete" [showDelay]="300"></i>
+                                    </span>
+                                </div>
                             </td>
                         </tr>
                     </ng-template>
