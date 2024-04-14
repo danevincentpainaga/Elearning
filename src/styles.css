@@ -4,6 +4,19 @@
     font-size: 0.775rem !important;
     height: 30px !important;
 } */
+body {
+    margin: 0 !important;
+}
+
+.header {
+    height: 3.3rem;
+}
+
+.breadcrum{
+    height: 4rem;
+    color: #ffff;
+    background-color: #263238;
+}
 
 .d-grid {
     display: grid !important;
@@ -45,19 +58,20 @@ label {
 input {
     font-size: 0.775rem !important;
     height: 30px !important;
-    border-radius: 3px !important;
+    border-radius: 2px !important;
 }
 
-/* button {
-    border-radius: 3px !important;
-} */
+button {
+    border-radius: 2px !important;
+}
 
 textarea {
     font-size: 0.775rem !important;
+    border-radius: 2px !important;
 }
 
 .p-dropdown {
-    border-radius: 3px !important;
+    border-radius: 2px !important;
 }
 
 .p-dropdown-item{
@@ -84,4 +98,26 @@ label {
 
 .p-multiselect-items {
     font-size: 0.775rem !important; 
+}
+
+.p-tree-wrapper {
+    font-size: 0.775rem !important;
+}
+
+.p-tree {
+    border-radius: 0 !important;
+}
+
+.p-tree .p-treenode-content {
+    padding: 0 !important;
+}
+
+.p-dialog .p-dialog-header {
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}
+
+.p-dialog .p-dialog-content:last-of-type {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }

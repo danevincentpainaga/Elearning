@@ -38,6 +38,10 @@ import { AddAccountsComponent } from './manage-admin-accounts/add-accounts/add-a
 import { MultiSelectModule } from 'primeng/multiselect';
 import { EditAccountsComponent } from './manage-admin-accounts/edit-accounts/edit-accounts.component';
 import { TreeModule } from 'primeng/tree';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {PanelModule} from 'primeng/panel';
+import { QuizComponent } from './quiz/quiz.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 
 @NgModule({
@@ -58,7 +62,9 @@ import { TreeModule } from 'primeng/tree';
     EditSubjectsFormComponent,
     ManageAdminAccountsComponent,
     AddAccountsComponent,
-    EditAccountsComponent
+    EditAccountsComponent,
+    DashboardComponent,
+    QuizComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -78,7 +84,9 @@ import { TreeModule } from 'primeng/tree';
     InputTextareaModule,
     DialogModule,
     MultiSelectModule,
-    TreeModule
+    TreeModule,
+    PanelModule,
+    RadioButtonModule
   ],
   providers: [ConfirmationService, MessageService, DialogService],
   bootstrap: [AppComponent],
