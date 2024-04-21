@@ -3,3 +3,18 @@
     color: #ffff;
     background-color: #263238;
 }
+.d-menu {
+    box-sizing: border-box;
+    padding: 0px 5px 10px 5px;
+}
+.d-menu .d-content {
+    border: 1px solid grey;
+}
+.d-menu .d-content img {
+    width: 100%;
+}
+.d-menu .d-content div {
+    border-top: 1px solid grey;
+    padding: 7px;
+    font-size: 0.775rem;
+}

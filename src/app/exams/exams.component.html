@@ -10,7 +10,7 @@
         <p-tabView>
             <p-tabPanel header="Questions bank">
                 <div class="card mt-3">
-                    <p-table [value]="teachers" styleClass="p-datatable-sm p-datatable-gridlines">
+                    <p-table [value]="teachers" styleClass="p-datatable-sm p-datatable-gridlines" [rows]="10" [paginator]="true">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th>Question name</th>
