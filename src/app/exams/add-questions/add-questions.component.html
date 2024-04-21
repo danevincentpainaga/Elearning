@@ -1,0 +1,44 @@
+<form [formGroup]="questionForm" (ngSubmit)="onQuestionSubmit()">
+    <div class="formgrid grid">
+        <div class="field col-12">
+            <label for="question">Question</label>
+            <textarea id="choice" formControlName="question" class="w-full" pInputTextarea></textarea>
+        </div>
+    </div>
+    <p-divider></p-divider>
+    <div class="mb-3">
+        <p-button label="Add" size="small" (click)="addChoices()"></p-button>
+    </div>
+    <p-table [value]="choices.controls" styleClass="p-datatable-sm p-datatable-gridlines" dataKey="id">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>No.</th>
+                <th>Choice</th>
+                <th>Score</th>
+                <th class="action">Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-controls let-i="rowIndex" formArrayName="choices">
+            <tr [formGroupName]="i">
+                <td class="w-20px">{{ i + 1 }}: </td>
+                <td>
+                    <textarea id="choice" formControlName="choice" [rows]="2" class="w-full" pInputTextarea></textarea>
+                </td>
+                <td class="w-30px">
+                    <p-dropdown appendTo="body" [options]="scores" formControlName="score" optionLabel="value" optionValue="value"></p-dropdown>
+                </td>
+                <td class="w-30px">
+                    <div class="action">
+                        <span>
+                            <i class="pi pi-trash remove" pTooltip="remove" [showDelay]="300" (click)="removeRow(i)"></i>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-divider></p-divider>
+    <div class="my-3 flex justify-content-end">
+        <p-button label="Save" size="small" type="submit"></p-button>
+    </div>
+</form>

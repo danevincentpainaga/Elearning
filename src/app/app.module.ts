@@ -42,7 +42,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {PanelModule} from 'primeng/panel';
 import { QuizComponent } from './quiz/quiz.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
-
+import { CardModule } from 'primeng/card';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DividerModule } from 'primeng/divider';
+import { ExamsComponent } from './exams/exams.component';
+import { AddQuizNameComponent } from './exams/add-quiz-name/add-quiz-name.component';
+import { AddQuestionsComponent } from './exams/add-questions/add-questions.component';
+import { AssignQuizComponent } from './exams/assign-quiz/assign-quiz.component';
+import { SplitterModule } from 'primeng/splitter';
+import { PaginatorModule } from 'primeng/paginator';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
   declarations: [
@@ -64,7 +73,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     AddAccountsComponent,
     EditAccountsComponent,
     DashboardComponent,
-    QuizComponent
+    QuizComponent,
+    ExamsComponent,
+    AddQuizNameComponent,
+    AddQuestionsComponent,
+    AssignQuizComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -86,7 +99,13 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     MultiSelectModule,
     TreeModule,
     PanelModule,
-    RadioButtonModule
+    RadioButtonModule,
+    CardModule,
+    InputNumberModule,
+    DividerModule,
+    SplitterModule,
+    PaginatorModule,
+    PickListModule
   ],
   providers: [ConfirmationService, MessageService, DialogService],
   bootstrap: [AppComponent],

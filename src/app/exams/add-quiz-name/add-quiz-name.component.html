@@ -1,0 +1,9 @@
+<form [formGroup]="quizNameForm">
+    <div class="formgrid grid">
+        <div class="field col-12 md:col-3">
+            <label for="quizname">Quiz name</label>
+            <input formControlName="quizname" pInputText class="w-full p-inputtext-sm">
+        </div>
+    </div>
+    <p-button label="Save" size="small" type="submit"></p-button>
+</form>

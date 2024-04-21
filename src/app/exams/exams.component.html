@@ -1,20 +1,20 @@
 <div class="breadcrum flex">
     <div class="flex align-items-center md:mx-8">
         <div class="flex md:mx-8">
-            > Manage teachers
+            > Manage Exams
         </div>
     </div>
   </div>
 <div class="card md:mx-8 mt-3">
     <div class="md:mx-8">
         <p-tabView>
-            <p-tabPanel header="Teachers">
+            <p-tabPanel header="Questions bank">
                 <div class="card mt-3">
                     <p-table [value]="teachers" styleClass="p-datatable-sm p-datatable-gridlines">
                         <ng-template pTemplate="header">
                             <tr>
-                                <th>Teacher</th>
-                                <th>Position</th>
+                                <th>Question name</th>
+                                <th>Question</th>
                                 <th>Created By</th>
                                 <th class="action">Action</th>
                             </tr>   
@@ -26,10 +26,10 @@
                                 <td>{{ tchr.createdBy }}</td>
                                 <td class="action">
                                     <span>
-                                        <i class="pi pi-user-edit info ml-3" pTooltip="Details" [showDelay]="300" (click)="editTeacher()"></i>
+                                        <i class="pi pi-user-edit info ml-3" pTooltip="Details" [showDelay]="300"></i>
                                     </span>
                                     <span>
-                                        <i class="pi pi-file-edit save ml-3" pTooltip="Details" [showDelay]="300" (click)="viewDetails()"></i>
+                                        <i class="pi pi-file-edit save ml-3" pTooltip="Details" [showDelay]="300"></i>
                                     </span>
                                     <span>
                                         <i class="pi pi-trash remove ml-3" pTooltip="Delete" [showDelay]="300"></i>
@@ -40,14 +40,15 @@
                     </p-table>
                 </div>
             </p-tabPanel>
-            <p-tabPanel header="Add Teacher"    >
-                <app-add-teachers></app-add-teachers>
+            <p-tabPanel header="Add Question">
+                <app-add-questions></app-add-questions>
             </p-tabPanel>
-            <p-tabPanel header="Assign subject">
-                <app-add-subjects></app-add-subjects>
+            <p-tabPanel header="Add quiz name">
+                <app-add-quiz-name></app-add-quiz-name>
+            </p-tabPanel>
+            <p-tabPanel header="Assign quiz">
+                <app-assign-quiz></app-assign-quiz>
             </p-tabPanel>
         </p-tabView>
     </div>
 </div>
-
-  

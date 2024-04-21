@@ -11,6 +11,7 @@ import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.compo
 import { ManageAdminAccountsComponent } from './manage-admin-accounts/manage-admin-accounts.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { ExamsComponent } from './exams/exams.component';
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "manage-subjects", component: ManageSubjectsComponent },
   { path: "mySubjects", component: MySubjectsComponent },
   { path: "subject-details/:id", component: SubjectDetailsComponent },
-  { path: "manage-admin", component: ManageAdminAccountsComponent }
+  { path: "manage-admin", component: ManageAdminAccountsComponent },
+  { path: "manage-exams", component: ExamsComponent }
   //   children: [
   //     { path: '', component: UserCreateFormComponent },
   //     { path: 'user-list', component: UserAccountsComponent }

@@ -42,11 +42,11 @@ export class QuizComponent {
 
   submitQuiz() {
     // Submit logic here
+    console.log(this.questions);
   }
 
   selected(index: any, answer: any){
     this.questions[index].selected_answer = answer;
-    console.log(this.questions);
   }
 
 }

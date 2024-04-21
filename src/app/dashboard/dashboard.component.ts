@@ -13,32 +13,32 @@ export class DashboardComponent {
   ngOnInit() {
     this.topics = [
       {
-        label: 'Programming Languages',
+        label: 'Math 101',
         data: 'Chapter',
         icon: 'pi pi-folder-open',
         children: [
           {
-            label: 'JavaScript',
+            label: 'Quiz 1',
             data: 'Topic',
             icon: 'pi pi-book',
-            children: [
-              { label: 'Introduction to JavaScript' },
-              { label: 'Advanced JavaScript' }
-            ]
+            // children: [
+            //   { label: 'Introduction to JavaScript' },
+            //   { label: 'Advanced JavaScript' }
+            // ]
           },
           {
-            label: 'Python',
+            label: 'Quiz 2',
             data: 'Topic',
             icon: 'pi pi-book',
-            children: [
-              { label: 'Introduction to Python' },
-              { label: 'Advanced Python' }
-            ]
+            // children: [
+            //   { label: 'Introduction to Python' },
+            //   { label: 'Advanced Python' }
+            // ]
           }
         ]
       },
       {
-        label: 'Frameworks',
+        label: 'Science',
         data: 'Chapter',
         icon: 'pi pi-folder-open',
         children: [

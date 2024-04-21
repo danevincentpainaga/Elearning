@@ -1,0 +1,33 @@
+<!-- <p-splitter [panelSizes]="[50, 50]" [style]="{ minHeight: '500px' }" styleClass="mb-5">
+    <ng-template pTemplate>
+    </ng-template>
+    <ng-template pTemplate>
+    </ng-template>
+</p-splitter> -->
+<div class="card">
+    <div class="w-full mx-8 mb-5 mt-5">
+        <div class="ml-2 w-full">
+            <p-dropdown [options]="searchOptions" placeholder="Filter by" [editable]="true" optionLabel="label" optionValue="value"></p-dropdown>
+        
+            <input id="question" pInputText class="w-6 ml-2 p-inputtext-sm">
+        </div>
+    </div>
+    <p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="Available questions" targetHeader="Selected questions" [dragdrop]="true" [responsive]="true" [sourceStyle]="{ height: '30rem' }"
+        [targetStyle]="{ height: '30rem' }">
+        <ng-template let-product pTemplate="item">
+            <div class="flex flex-wrap p-2 align-items-center gap-3">
+                <div class="flex-1 flex flex-column gap-2">
+                    <span class="font-bold">{{ product.question }}</span>
+                    <div class="flex align-products-center gap-2">
+                        <i class="pi pi-tag text-sm"></i>
+                        <span>{{ product.quizname }}</span>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-pickList>
+    <div class="flex mx-8 mt-4 px-2 justify-content-end">
+        <p-button label="Save" size="small" (click)="onSubmit()"></p-button>
+    </div>
+    <!-- <p-paginator (onPageChange)="onPageChange($any($event))" [first]="first" [rows]="rows" [totalRecords]="120" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator> -->
+</div>
