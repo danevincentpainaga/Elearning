@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { DropdownChangeEvent } from 'primeng/dropdown/dropdown.interface';
 import { AdminService } from '../../services/admin.service';
@@ -6,7 +6,8 @@ import { AdminService } from '../../services/admin.service';
 @Component({
   selector: 'app-add-subjects',
   templateUrl: './add-subjects.component.html',
-  styleUrl: './add-subjects.component.css'
+  styleUrl: './add-subjects.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AddSubjectsComponent {
 
@@ -48,7 +49,7 @@ export class AddSubjectsComponent {
     this.newSubjects.push(
       this.fb.group({
         subject: [null, [Validators.required, this.uniqueSubject(this.newSubjects)]],
-        description: [null, Validators.required]
+        description: [{ value: null, disabled: true },  Validators.required]
       })
     );
   }
@@ -56,7 +57,7 @@ export class AddSubjectsComponent {
   uniqueSubject(newSubject: any): ValidatorFn  {
     return (control: AbstractControl): ValidationErrors | null => {
       const res = newSubject.value.findIndex((val: any) => (val.subject && val.subject === control.value));
-      return res > -1 ? { Duplicate: true } : null;
+      return res > -1 ? { Duplicate: 'Duplicate subject' } : null;
     }
   }
      
@@ -79,12 +80,23 @@ export class AddSubjectsComponent {
 
   onChangeTeacher($event: DropdownChangeEvent): void {
     this.showTable = $event.value ? true : false;
-    if(!$event.value) {
-      this.tSubjecForm.reset();
-      this.newSubjects.clear();
-      this.tSubjecForm.updateValueAndValidity();
+  }
+
+  onClearValue(): void {
+    this.tSubjecForm.reset();
+    this.newSubjects.clear();
+    this.tSubjecForm.updateValueAndValidity();
+  }
+
+  tooltipText(formControl: any) {
+    if(formControl?.errors?.['Duplicate']) {
+      return formControl?.errors?.['Duplicate'];
+    }
+    else if(formControl.touched && formControl.status === 'INVALID') {
+      return "Required";
     }
   }
+
 
 }
 

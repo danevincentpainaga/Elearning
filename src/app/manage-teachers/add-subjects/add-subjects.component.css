@@ -1,0 +1,11 @@
+.w-40px {
+    width: 40px;
+}
+
+.p-tooltip .p-tooltip-arrow {
+    border-left-color:  red !important;
+}
+
+.p-tooltip .p-tooltip-text {
+    background-color: red !important;
+}

@@ -52,6 +52,8 @@ import { AssignQuizComponent } from './exams/assign-quiz/assign-quiz.component';
 import { SplitterModule } from 'primeng/splitter';
 import { PaginatorModule } from 'primeng/paginator';
 import { PickListModule } from 'primeng/picklist';
+import { CustomToolTipDirective } from './shared/directives/custom-tool-tip.directive';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,8 @@ import { PickListModule } from 'primeng/picklist';
     ExamsComponent,
     AddQuizNameComponent,
     AddQuestionsComponent,
-    AssignQuizComponent
+    AssignQuizComponent,
+    CustomToolTipDirective
   ],
   imports: [
     BrowserAnimationsModule,
@@ -105,7 +108,8 @@ import { PickListModule } from 'primeng/picklist';
     DividerModule,
     SplitterModule,
     PaginatorModule,
-    PickListModule
+    PickListModule,
+    SplitButtonModule
   ],
   providers: [ConfirmationService, MessageService, DialogService],
   bootstrap: [AppComponent],

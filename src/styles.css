@@ -121,3 +121,8 @@ label {
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
+
+.p-tooltip .p-tooltip-text {
+    font-size: 13px !important;
+    border-radius: 2px !important;
+}

@@ -9,7 +9,8 @@
                 optionLabel="period"
                 optionValue="periodID"
                 [showClear]="true"
-                placeholder="period">
+                placeholder="period"
+                (onClear)="onClearValue()">
             </p-dropdown>
             <p-dropdown 
                 [options]="academicYear"
@@ -21,7 +22,8 @@
                 [showClear]="true"
                 placeholder="Academic year"
                 styleClass="w-full md:w-3 p-inputtext-sm ml-2"
-                appendTo="body">
+                appendTo="body"
+                (onClear)="onClearValue()">
             </p-dropdown>
             <p-dropdown 
                 *ngIf="selectedPeriod && selectedAcademicYear"
@@ -34,7 +36,8 @@
                 [showClear]="true"
                 placeholder="Search teacher"
                 styleClass="w-full md:w-5 p-inputtext-sm ml-2"
-                (onChange)="onChangeTeacher($event)">
+                (onChange)="onChangeTeacher($event)"
+                (onClear)="onClearValue()">
             </p-dropdown>
         </div>
         <div class="col-4 text-right" *ngIf="newSubjects.length > 0">
@@ -47,6 +50,7 @@
                 <ng-template pTemplate="caption"></ng-template>
                 <ng-template pTemplate="header">
                     <tr>
+                        <th class="w-40px">No.</th>
                         <th>Subject</th>
                         <th>Description</th>
                         <th class="action">Action</th>
@@ -54,8 +58,12 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-controls let-i="rowIndex" formArrayName="newSubjects">
                     <tr [formGroupName]="i">
+                        <td>{{ i + 1 }}</td>
                         <td>
-                            <p-dropdown 
+                            <p-dropdown
+                                [autoHide]="false"
+                                tooltipPosition="left"
+                                [pTooltip]="tooltipText(newSubjects.controls[i].get('subject'))"
                                 [options]="subjects"
                                 formControlName="subject"
                                 optionLabel="subject"
@@ -67,7 +75,6 @@
                                 styleClass="w-full p-inputtext-sm"
                                 appendTo="body">
                             </p-dropdown>
-                            <small class="remove" *ngIf="newSubjects.controls[i].get('subject')?.errors?.['Duplicate']">Duplicate subject</small>
                         </td>
                         <td>
                             <input formControlName="description" pInputText class="w-full p-inputtext-sm">
